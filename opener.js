@@ -8,9 +8,6 @@ const openTab = ({ title, path, splits = [], commands = [] }) => {
   );
 
   const cmd = `ttab ${params.join(" ")} ${initCommands}`;
-  // const cmd = `ttab ${params.join(" ")} pwd;${initSplitCommands}`;
-  console.log(cmd);
-  // console.log("\n");
 
   execSync(cmd);
 };
@@ -34,7 +31,6 @@ const prepareSplitCommand = ({ title = "", commands = [], debug = true }) => {
     .join(" ");
 
   const cmd = `osascript ${devNull} ${osaLines}`;
-  // console.log(cmd);
   return cmd;
 };
 

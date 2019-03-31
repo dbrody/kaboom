@@ -3,14 +3,14 @@ const minimist = require("minimist");
 // usage represents the help guide
 const usage = () => {
   const usageText = `
-  opens windows tabs for your projects.
+    Opens windows tabs for your projects.
 
-  usage:
-    kaboom <command>
+    usage:
+      kaboom [!!!!!!]
 
-    commands:
-    help:     used to print the usage guide
-  `;
+      commands:
+      help:     No help. All alone. Go to readme
+    `;
   console.log(usageText);
 };
 
