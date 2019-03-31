@@ -11,6 +11,11 @@ For more information, see [Apple's support article on the subject](https://suppo
 
 *(Part of readme from https://raw.githubusercontent.com/mklement0/ttab/)*
 
+## Config
+Use `config.sample.json` to create `config.json`.
+
+`"title"` field seems to be silently failing in `ttab` (they mention iTerm support as experimental) but it makes the `config.json` easier to understand, so I use it anyways.
+
 ## Run 
 
 `./bin kaboom`
