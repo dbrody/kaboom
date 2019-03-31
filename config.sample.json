@@ -1,0 +1,26 @@
+{
+  "tabs": [
+    {
+      "title": "api",
+      "path": "~/workspace/api",
+      "commands": [". env/bin/activate"],
+      "splits": [
+        {
+          "title": "2"
+        }
+      ]
+    },
+    {
+      "title": "RN-breakthrough-app",
+      "path": "~/workspace/breakthrough",
+      "splits": [
+        {
+          "title": "logger"
+        },
+        {
+          "title": "metro"
+        }
+      ]
+    }
+  ]
+}
