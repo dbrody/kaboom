@@ -1,5 +1,6 @@
 # KABOOM! opens tabs for you, so you have few more secs to check that tiktoks you secretly love.
 
+Set your config once, so that you don't have to activate that python environment, open tabs for logs, start server, seed database - you get the point.
 
 ## Installation
 
@@ -14,7 +15,10 @@ For more information, see [Apple's support article on the subject](https://suppo
 ## Config
 Use `config.sample.json` to create `config.json`.
 
+`"splits"` stand for tab split.
+
 `"title"` field seems to be silently failing in `ttab` (they mention iTerm support as experimental) but it makes the `config.json` easier to understand, so I use it anyways.
+
 
 ## Run 
 
