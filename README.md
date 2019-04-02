@@ -17,7 +17,7 @@ Set your config once, so that you don't have to activate that python environment
   `yarn`
 
 ## Config
-Use `config.sample.json` to create `config.json`.
+Have a look at `config.sample.js` and create `config.js` that suits you. 
 
 `"splits"` stand for tab split.
 
