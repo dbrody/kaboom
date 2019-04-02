@@ -7,13 +7,16 @@ const openTab = ({ title, path, splits = [], commands = [] }) => {
     prepareSplitCommand(splitOptions, { debug: true, tabPath: path })
   );
 
-  const initCommands = [commands, ...handleSplits].join("; ");
-
-  const cmd = `ttab ${params.join(" ")} ${initCommands}`;
+  const initCommands = [...commands, ...handleSplits].join("; ");
+  const cmd = `ttab ${params.join(" ")} '${initCommands}'`;
 
   execSync(cmd);
 };
 
+
+// TODO:
+// Problem with activating tabs, steal focus and execs commands in incorrect windows
+// Quick fix, wait 2-3 seconds if splits are used
 const prepareSplitCommand = (
   { commands = [], path: customSplitPath },
   { debug = true, tabPath }
@@ -21,13 +24,12 @@ const prepareSplitCommand = (
   const devNull = debug ? "" : "&>/dev/null";
 
   const customCommandsLines = commands.map(
-    command => `write text "${command}"`
+    command => `write text \\"${command}\\"`
   );
 
-  const cdPathLine = `write text "cd ${customSplitPath || tabPath}"`;
-
+  const cdPathLine = `write text \\"cd ${customSplitPath || tabPath}\\"`;
   const osaLines = [
-    'tell application "iTerm"',
+    'tell application \\"iTerm\\"',
     "tell current session of current window to set newSplit to split horizontally with same profile",
     "tell newSplit",
     "select",
@@ -36,12 +38,10 @@ const prepareSplitCommand = (
     "end tell",
     "end tell"
   ]
-    // TODO: this might explode if command has quotes
-    .map(line => `-e '${line}'`)
+    .map(line => `-e "${line}"`)
     .join(" ");
 
-  const cmd = `osascript ${devNull} ${osaLines}`;
-  return cmd;
+  return `osascript ${devNull} ${osaLines}`;
 };
 
 module.exports = {

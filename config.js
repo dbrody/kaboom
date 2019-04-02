@@ -3,12 +3,17 @@ const config = {
     {
       title: "core-api",
       path: "~/workspace/airsorted/core-api",
-      commands: [". env/bin/activate"],
+      commands: [". env/bin/activate", "l"],
       splits: [
         {
           title: "logger",
           path: "~/",
-          commands: ["l"]
+          commands: ["l", "cd 'workspace'", "echo 'AMAZING!'"]
+        },
+        {
+          title: "logger",
+          path: "~/",
+          commands: ["l", "cd 'Downloads'", "echo 'Neat!'"]
         }
       ]
     },
@@ -18,9 +23,6 @@ const config = {
       splits: [
         {
           title: "1"
-        },
-        {
-          title: "2"
         }
       ]
     }

@@ -9,7 +9,7 @@ const config = {
       path: "~/workspace/api",
 
       // This commands will be exectued rigth after entering the path above
-      commands: [". env/bin/activate"],
+      commands: [". env/bin/activate", "echo 'AMAZING!'"],
 
       // This splits the window
       splits: [
