@@ -28,7 +28,7 @@ if (args._) {
 let config = {};
 
 try {
-  config = require("./config.json");
+  config = require("./config");
 } catch (error) {
   require("./logger").errorLog(error);
   return;
