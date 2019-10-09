@@ -1,9 +1,10 @@
-# KABOOM! opens tabs for you, so you have few more secs to check that tiktoks you secretly love.
+# KABOOM! opens tabs for you, so you can get into your project mindset faster.
 
 Set your config once, so that you don't have to activate that python environment, open tabs for logs, start server, seed database - you get the point.
 
 ## Updates by David (10/8/2019)
 
++ Modifies to use Terminal.app
 + Modifies bin/kaboom to be runnable from globally installed version (usr bin or symlinked)
 + Modifies configuration file to be kaboom.json
 + Modifies running to open a new window and then run all windows as tabs in new window
