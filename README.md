@@ -9,10 +9,10 @@ Set your config once, so that you don't have to activate that python environment
 
 ## Updates by David (10/8/2019)
 
-+ Modifies to use Terminal.app
-+ Modifies bin/kaboom to be runnable from globally installed version (usr bin or symlinked)
-+ Modifies configuration file to be kaboom.json
-+ Modifies running to open a new window and then run all windows as tabs in new window
++ [x] Modifies to use Terminal.app
++ [x] Modifies bin/kaboom to be runnable from globally installed version (usr bin or symlinked)
++ [x] Modifies configuration file to be kaboom.json
++ [x] Modifies running to open a new window and then run all windows as tabs in new window
 
 Now install this globally, make `kaboom` accessible on your terminal. Then you can do:
 
