@@ -2,6 +2,11 @@
 
 Set your config once, so that you don't have to activate that python environment, open tabs for logs, start server, seed database - you get the point.
 
+## TODO
+
++ [ ] Allow this to be installed with something like `npm install -g`
+
+
 ## Updates by David (10/8/2019)
 
 + Modifies to use Terminal.app
