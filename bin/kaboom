@@ -1,1 +1,6 @@
-node ./kaboom.js "$@" 
+#!/usr/bin/env bash
+
+BIN_PATH="$(readlink "$0")"
+BIN_DIR="$(dirname "$BIN_PATH")"
+PACKAGE_DIR="$(dirname "$BIN_DIR")"
+node $PACKAGE_DIR/kaboom.js "$@"

@@ -1,4 +1,4 @@
-const config = {
+{
   tabs: [
     {
       // `title` is ignored by ttab when using with iterm2
@@ -37,8 +37,4 @@ const config = {
       ]
     }
   ]
-};
-
-module.exports = {
-  ...config
-};
+}

@@ -20,18 +20,43 @@ let args = minimist(process.argv.slice(2), {
   }
 });
 
-// Handle unknown command passed
-if (args._) {
+let tabs = {};
+if (args._ && args._.length > 0) {
   usage();
 }
 
-let config = {};
+if(!args.open){
+  // This is the running script
+  tabs = [
+    {
+      "title": "Kaboom Terminal Window Opener",
+      "path": "./",
+      "commands": ["kaboom --open"],
+      "newwindow": true,
+      "background": false
+    }
+  ]
+} else {
+  console.log("");
+  console.log("██╗  ██╗ █████╗ ██████╗  ██████╗  ██████╗ ███╗   ███╗");
+  console.log("██║ ██╔╝██╔══██╗██╔══██╗██╔═══██╗██╔═══██╗████╗ ████║");
+  console.log("█████╔╝ ███████║██████╔╝██║   ██║██║   ██║██╔████╔██║");
+  console.log("██╔═██╗ ██╔══██║██╔══██╗██║   ██║██║   ██║██║╚██╔╝██║");
+  console.log("██║  ██╗██║  ██║██████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║");
+  console.log("╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝");
+  console.log("Automated Terminal Windows");
+  console.log("");
+  console.log("======================================================");
+  console.log("Opening Windows: ");
 
-try {
-  config = require("./config");
-} catch (error) {
-  require("./logger").errorLog(error);
-  return;
+  let basedir = process.cwd();
+  try {
+    const config = require(basedir + "/kaboom.json");
+    tabs = config.tabs;
+  } catch (error) {
+    require("./logger").errorLog(error);
+    return;
+  }
 }
 
-config.tabs.forEach(require("./opener").openTab);
+tabs.forEach(require("./opener").openTab);

@@ -1,7 +1,16 @@
 const { execSync } = require("child_process");
 
-const openTab = ({ title, path, splits = [], commands = [] }) => {
-  const defaults = ["-a iTerm2"];
+const openTab = ({ title, path, splits = [], commands = [], newwindow = false, background = true }) => {
+  let message = "+ Opening " + title;
+  let defaults = ["-a Terminal"];
+  if(newwindow){
+    defaults.push('-w');
+    message += " (new window)";
+  }
+  if(background){
+    defaults.push('-G');
+    message += " (background)";
+  }
   let params = [...defaults, `-t '${title}'`, `-d ${path}`];
   let handleSplits = splits.map(splitOptions =>
     prepareSplitCommand(splitOptions, { debug: true, tabPath: path })
@@ -9,10 +18,10 @@ const openTab = ({ title, path, splits = [], commands = [] }) => {
 
   const initCommands = [...commands, ...handleSplits].join("; ");
   const cmd = `ttab ${params.join(" ")} '${initCommands}'`;
-
+  process.stdout.write(message + "....");
   execSync(cmd);
+  console.log("...done.");
 };
-
 
 // TODO:
 // Problem with activating tabs, steal focus and execs commands in incorrect windows
